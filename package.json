@@ -1,0 +1,32 @@
+{
+  "name": "to-do-list-nodejs-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/sever/server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "http": "0.0.1-security",
+    "mysql2": "^2.2.5",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "start": "node ./src/server/server.js",
+    "watch": "nodemon ./src/server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Puthpiseth/To-Do-List-NodeJs-Express.git"
+  },
+  "author": "Piseth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Puthpiseth/To-Do-List-NodeJs-Express/issues"
+  },
+  "homepage": "https://github.com/Puthpiseth/To-Do-List-NodeJs-Express#readme"
+}
