@@ -14,7 +14,7 @@ form {
   position: absolute;
   display: flex;
   justify-content: space-between;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-45%, -50%);
   width: 60%;
@@ -30,7 +30,7 @@ label {
 }
 
 #entry-table-name {
-  border-bottom: 3px solid black;
+  position: relative;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -70,6 +70,23 @@ input:last-child {
 
 .place-holder-disappear {
   display: none;
+}
+
+p {
+  position: absolute;
+  top: 3%;
+  left: 35%;
+  transform: translateY(-5vh);
+  transition: 0.5s;
+  opacity: 0;
+  font-size: 1.7rem;
+  padding: 2%;
+  background-color: rgba(245, 222, 179, 0.76);
+}
+
+.warning {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /*# sourceMappingURL=home_style.css.map */
