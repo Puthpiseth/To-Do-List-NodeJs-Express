@@ -3,7 +3,8 @@ const database = require('../database');
 
 exports.create_table = (table_name, callback)=>{
     database.query(
-`CREATE TABLE ${table_name}(id INT AUTO_INCREMENT NOT NULL, description TEXT, date_de_creation DATETIME, PRIMARY KEY(id));`,(err, response)=>{
+`CREATE TABLE ${table_name}(id INT AUTO_INCREMENT NOT NULL, description TEXT, date_de_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY(id), fini BOOLEAN DEFAULT FALSE);`,
+(err, response)=>{
                     if(err){
                         callback(err,null);
                         return;
@@ -11,3 +12,49 @@ exports.create_table = (table_name, callback)=>{
                     callback(null,response);
                 })
 } 
+
+exports.create_task = (row_tables, callback) => {
+    allTaskList(callback);
+    database.query (
+        `INSERT INTO expressJs  (description) VALUES('${row_tables}');`,
+        
+       (error,response)=>{
+           if(error){
+                callback(err, null);
+                return;
+           }
+           callback(null, response);
+       })
+}
+
+
+exports.affiche = (callback) =>{
+    database.query (
+        `SELECT * FROM expressJs ;`,
+        (error,response)=> {
+            if(error){
+                 callback(error, null);
+                 return;
+            }
+            console.log('tchiiip');
+            callback(null, response);
+
+        })
+        
+        
+}
+
+function allTaskList (callback) {
+    database.query (
+        `CREATE TABLE  IF NOT EXISTS  "all_tasks_list" (id INT AUTO_INCREMENT NOT NULL, FOREIGN KEY(id) REFERENCES expressJs(id));`,
+        (error,response)=> {
+            if(error){
+                 callback(error, null);
+                 return;
+            }
+            console.log('tchiiip');
+            callback(null, response);
+
+    })
+    
+}

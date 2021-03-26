@@ -12,11 +12,16 @@ body {
 
 form {
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   top: 40%;
   left: 50%;
-  transform: translate(-45%, -50%);
+  -webkit-transform: translate(-45%, -50%);
+          transform: translate(-45%, -50%);
   width: 60%;
 }
 
@@ -25,7 +30,9 @@ label {
   color: rgba(17, 17, 17, 0.342);
   font-size: 1.9rem;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: 2s;
   transition: 2s;
 }
 
@@ -37,14 +44,19 @@ label {
   background-color: rgba(255, 255, 255, 0.014);
   cursor: pointer;
   width: 90%;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
+
 #entry-table-name:focus {
   border: none;
 }
+
 #entry-table-name:focus + label {
   top: -30px;
-  transform: translateX(-380px);
+  -webkit-transform: translateX(-380px);
+          transform: translateX(-380px);
 }
 
 input:last-child {
@@ -55,7 +67,8 @@ input:last-child {
   color: white;
   font-size: 1.6rem;
   border: none;
-  box-shadow: 0 0 6px black;
+  -webkit-box-shadow: 0 0 6px black;
+          box-shadow: 0 0 6px black;
 }
 
 .submit {
@@ -76,8 +89,10 @@ p {
   position: absolute;
   top: 3%;
   left: 35%;
-  transform: translateY(-5vh);
-  transition: 0.5s;
+  -webkit-transform: translateY(-5vh);
+          transform: translateY(-5vh);
+  -webkit-transition: .5s;
+  transition: .5s;
   opacity: 0;
   font-size: 1.7rem;
   padding: 2%;
@@ -85,8 +100,8 @@ p {
 }
 
 .warning {
-  transform: translateY(0);
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
   opacity: 1;
 }
-
 /*# sourceMappingURL=home_style.css.map */

@@ -19,7 +19,9 @@ const controller = require('../controllers/controller');
 server.get('/',(_,rep)=>{
     rep.render("home.ejs");
 })
+server.use("/",controller.afficheTasks);
+server.post('/', controller.addTask);
+/* server.use('/', controller.tasksList);
+ */
 
-server.post("/ok", controller.create_table);
-    
-
+server.post("/alltask", controller.create_table);

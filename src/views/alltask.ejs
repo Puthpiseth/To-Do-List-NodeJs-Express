@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/alltask.css">
+    
+    <title>alltask</title>
+</head>
+<body>
+    <form class= "formulaire" action="/alltask" method='POST'>
+        <input class= "text"type="text" id='entry-table-name' placeholder="Ajouter une tache" name="tasks">
+        <img class="add" src="/plus.png" alt="">
+        <input class= "plus" type="submit" class='submit' value='ok'>
+   </form>
+  
+   
+       
+       
+       <ul>
+           <% if (taskData){taskData.forEach(el=>{%>
+            <li><%= el.description %></li>
+            <% })}%>
+        </ul>
+   
+    
+    
+</body>
+</html>
