@@ -1,6 +1,3 @@
-let redirect = false;
-
-
 const { response } = require("express");
 
 const model = require('../models/model');
@@ -13,7 +10,7 @@ exports.create_table = (request, response)=>{
         if(error){
             throw error;
         }
-       
+       console.log(req);
         response.render("alltask.ejs");
     })
 }
@@ -24,9 +21,9 @@ exports.addTask = (request, response) =>{
         if(error){
             throw error;
         }
-        response.redirect("/alltask");
-/*         response.render("alltask.ejs")
- */       
+       response.redirect("/alltask");
+         
+       
       })
 };
 
@@ -43,7 +40,7 @@ exports.afficheTasks = (request, response, next) => {
 }
 
 
-exports.tasksList = (request, response, next) => {
+/* exports.tasksList = (request, response, next) => {
     model.allTaskList((error,blood)=>{
         if(error){
             throw error;
@@ -54,4 +51,4 @@ exports.tasksList = (request, response, next) => {
 
     });
     
-}
+} */

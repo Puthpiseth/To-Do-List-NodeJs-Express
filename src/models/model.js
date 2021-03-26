@@ -9,12 +9,12 @@ exports.create_table = (table_name, callback)=>{
                         callback(err,null);
                         return;
                     }
+                    console.log('new table');
                     callback(null,response);
                 })
 } 
 
 exports.create_task = (row_tables, callback) => {
-    allTaskList(callback);
     database.query (
         `INSERT INTO expressJs  (description) VALUES('${row_tables}');`,
         
@@ -23,6 +23,7 @@ exports.create_task = (row_tables, callback) => {
                 callback(err, null);
                 return;
            }
+           console.log('modeleinsertinto');
            callback(null, response);
        })
 }
@@ -36,7 +37,7 @@ exports.affiche = (callback) =>{
                  callback(error, null);
                  return;
             }
-            console.log('tchiiip');
+            console.log('modeleaffiche');
             callback(null, response);
 
         })
@@ -44,17 +45,3 @@ exports.affiche = (callback) =>{
         
 }
 
-function allTaskList (callback) {
-    database.query (
-        `CREATE TABLE  IF NOT EXISTS  "all_tasks_list" (id INT AUTO_INCREMENT NOT NULL, FOREIGN KEY(id) REFERENCES expressJs(id));`,
-        (error,response)=> {
-            if(error){
-                 callback(error, null);
-                 return;
-            }
-            console.log('tchiiip');
-            callback(null, response);
-
-    })
-    
-}
