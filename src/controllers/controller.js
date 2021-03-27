@@ -1,12 +1,54 @@
-const { response } = require('express');
-const dataBaseReturn = require('../models/model');
+const { response } = require("express");
 
-exports.findData = (_, response) =>{
-    dataBaseReturn.getData((err, data) =>{
-        if(err){
-            console.log(err);
-         }
-        
-        response.render('home.ejs', {data});
-        })
+const model = require('../models/model');
+
+exports.create_table = (request, response)=>{
+
+    const req = request.body.entry_text;
+
+    model.create_table(req,(error,status_ok)=>{
+        if(error){
+            throw error;
+        }
+       console.log(req);
+        response.render("alltask.ejs");
+    })
 }
+
+exports.addTask = (request, response) =>{
+    const description = request.body.tasks;
+    model.create_task(description, (error,datas) => {
+        if(error){
+            throw error;
+        }
+       response.redirect("/alltask");
+         
+       
+      })
+};
+
+exports.afficheTasks = (request, response, next) => {
+    model.affiche((error,taskData)=>{
+        if(error){
+            throw error;
+        }
+        response.render('alltask.ejs',{taskData});
+        next();
+
+    });
+    
+}
+
+
+/* exports.tasksList = (request, response, next) => {
+    model.allTaskList((error,blood)=>{
+        if(error){
+            throw error;
+        }
+        console.log('new task added');
+        next();
+        
+
+    });
+    
+} */

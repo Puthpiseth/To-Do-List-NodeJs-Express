@@ -10,12 +10,14 @@
     <title>Document</title>
 </head>
 <body>
-       <form action="to_do_list_page.ejs" method='POST'>
-            <input type="text" id='entry-table-name'>
+       <p>Vous devez entrez le nom de votre première table</p>
+       <form action='/alltask' method="POST">
+            <input type="text" id='entry-table-name' name="entry_text" />
             <label for="entry_table_name"> Saisissez le titre de votre liste</label>
-            <input type="submit" class='submit' value=''>
+            <input type="submit" class='submit' />
             <img src="/plus.png" alt="">
        </form>
        <script src='/home.js'></script>
 </body>
 </html>
+
