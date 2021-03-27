@@ -16,7 +16,7 @@ exports.create_table = (table_name, callback)=>{
 
 exports.create_task = (row_tables, callback) => {
     database.query (
-        `INSERT INTO expressJs  (description) VALUES('${row_tables}');`,
+        `INSERT INTO expressJS  (description) VALUES('${row_tables}');`,
         
        (error,response)=>{
            if(error){
@@ -31,7 +31,7 @@ exports.create_task = (row_tables, callback) => {
 
 exports.affiche = (callback) =>{
     database.query (
-        `SELECT * FROM expressJs ;`,
+        `SELECT * FROM expressJS ;`,
         (error,response)=> {
             if(error){
                  callback(error, null);
