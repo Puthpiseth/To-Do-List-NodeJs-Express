@@ -12,6 +12,7 @@ server.set('views', './src/views');
 server.use(express.static("./src/style_sheets/"));
 server.use(express.static('./src/assets'));
 server.use(bodyParser.urlencoded({extended:true}));
+server.use(express.static("./src/js"))
 
 // listen to port
 server.listen(5000,()=>console.log('server on'));
@@ -21,13 +22,18 @@ server.listen(5000,()=>console.log('server on'));
 
 const controller = require('../controllers/controller');
 
-server.get('/',(_,rep)=>{
+server.get('/home',(_,rep)=>{
     rep.render("home.ejs");
 })
 
-server.post('/', controller.addTask);
-server.use("/",controller.afficheTasks);
+server.get("/alltask", controller.addTask);
+// server.get("/delete", controller.deleteTasks);
+server.use("/", controller.afficheTasks);
+server.get("/alltask", (request, response) => {
+    response.render("alltask.ejs");
+});
 /* server.use('/', controller.tasksList);
  */
 
-server.post("/alltask", controller.create_table);
+server.get("/alltask", controller.create_table);
+

@@ -15,19 +15,17 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   height: 100vh;
   background: rgba(0, 0, 0, 0.315);
+  padding-bottom: 10%;
 }
 
 .user-entry {
-  width: 80%;
-  height: 60%;
+  width: 45.8vw;
+  height: 80%;
   margin-left: 1%;
 }
 
@@ -56,11 +54,16 @@ a {
   color: black;
 }
 
-svg {
-  margin-right: 2%;
-  stroke: black;
-  fill: red;
+.delete {
   visibility: hidden;
+  margin-right: 2%;
+  cursor: pointer;
+}
+
+svg {
+  stroke: black;
+  fill: rgba(255, 0, 0, 0.753);
+  padding: 2%;
 }
 
 li {
@@ -86,5 +89,9 @@ li:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   border: thin #05c3f3 solid;
+}
+
+.visible {
+  visibility: visible;
 }
 /*# sourceMappingURL=alltask.css.map */

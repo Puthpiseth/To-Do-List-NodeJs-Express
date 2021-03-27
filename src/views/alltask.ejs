@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <form action="/" method='POST'>
+        <form action="/alltask" method='GET'>
             <input class= "user-entry" type="text" id='entry-table-name' placeholder="Ajouter une tache" name="tasks">
             <input type="submit" class='submit' value='submit'>
                
@@ -20,8 +20,8 @@
            <% if (taskData){taskData.forEach(el=>{%>
             <li>
                 <input type="checkbox">
-                <a href="#"><%= el.description %></a>
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                <a href=<%=`/${el.description}`%>><%= el.description %></a>
+                <a class="delete" href=<%=`/delete/${el.description}`%>><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	  viewBox="0 0 365.744 365.744" style="enable-background:new 0 0 365.744 365.744; width:20px; height:20px" xml:space="preserve">
 <g>     
 	<g>
@@ -38,7 +38,7 @@
 	</g>
 </g>
 
-</svg>
+</svg></a>
             </li><% })}%>
 
 
@@ -46,7 +46,7 @@
 
     </div>
    
-    
+    <script src="/alltask.js"></script>
     
 </body>
 </html>

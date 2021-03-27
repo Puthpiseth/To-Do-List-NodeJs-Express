@@ -16,7 +16,7 @@ exports.create_table = (table_name, callback)=>{
 
 exports.create_task = (row_tables, callback) => {
     database.query (
-        `INSERT INTO expressJS  (description) VALUES('${row_tables}');`,
+        `INSERT INTO ExpressJS (description) VALUES('${row_tables}');`,
         
        (error,response)=>{
            if(error){
@@ -31,13 +31,28 @@ exports.create_task = (row_tables, callback) => {
 
 exports.affiche = (callback) =>{
     database.query (
-        `SELECT * FROM expressJS ;`,
+        `SELECT * FROM ExpressJS ;`,
         (error,response)=> {
             if(error){
                  callback(error, null);
                  return;
             }
             console.log('modeleaffiche');
+            callback(null, response);
+
+        })
+        
+}
+
+exports.deleteTask = (description, callback) =>{
+    database.query (
+        `DELETE FROM ExpressJS WHERE description= ${description};`,
+        (error,response)=> {
+            if(error){
+                 callback(error, null);
+                 return;
+            }
+            console.log('modele delete');
             callback(null, response);
 
         })

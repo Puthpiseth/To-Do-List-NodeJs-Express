@@ -6,25 +6,29 @@ exports.create_table = (request, response)=>{
 
     const req = request.body.entry_text;
 
-    model.create_table(req,(error,status_ok)=>{
+    model.create_table(req,(error, status_ok)=>{
         if(error){
             throw error;
         }
-       console.log(req);
-        response.render("alltask.ejs");
+        response.redirect("/alltask");
     })
 }
 
+
 exports.addTask = (request, response) =>{
-    const description = request.body.tasks;
-    model.create_task(description, (error,datas) => {
+    
+    const id = request.originalUrl.split("=");
+    model.create_task(id[1], (error, datas) => {
         if(error){
             throw error;
+
         }
-       response.redirect("/alltask");
-         
+        console.log(id[1]);
+        response.redirect("/alltask/:id")
+
        
       })
+      
 };
 
 exports.afficheTasks = (request, response, next) => {
@@ -40,15 +44,14 @@ exports.afficheTasks = (request, response, next) => {
 }
 
 
-/* exports.tasksList = (request, response, next) => {
-    model.allTaskList((error,blood)=>{
-        if(error){
-            throw error;
-        }
-        console.log('new task added');
-        next();
-        
+// exports.deleteTask = (request, response)=> {
 
-    });
+//     model.delete((error,taskData)=>{
+//         if(error){
+//             throw error;
+//         }
+//         response.redirect('/alltask');
+
+//     });
     
-} */
+// }
