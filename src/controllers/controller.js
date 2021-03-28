@@ -3,52 +3,49 @@ const { response } = require("express");
 const model = require('../models/model');
 
 exports.create_table = (request, response)=>{
-
     const req = request.body.entry_text;
-
-    model.create_table(req,(error,status_ok)=>{
+    model.create_table(req,(error, status_ok)=>{
         if(error){
             throw error;
         }
-       console.log(req);
-        response.render("alltask.ejs");
+        response.redirect("/alltask");
     })
+   
 }
 
+
 exports.addTask = (request, response) =>{
-    const description = request.body.tasks;
-    model.create_task(description, (error,datas) => {
+    const id = request.body.tasks;
+    model.create_task(id, (error, datas) => {
         if(error){
             throw error;
         }
-       response.redirect("/alltask");
-         
-       
+        response.redirect(`/alltask`);
       })
+      
 };
 
-exports.afficheTasks = (request, response, next) => {
+
+
+
+exports.afficheTask = (request, response)=> {
     model.affiche((error,taskData)=>{
         if(error){
             throw error;
         }
         response.render('alltask.ejs',{taskData});
-        next();
 
     });
     
 }
 
-
-/* exports.tasksList = (request, response, next) => {
-    model.allTaskList((error,blood)=>{
-        if(error){
-            throw error;
+exports.delete_selected_task = (request,resp)=>{
+    const id = request.params.id;
+    model.deleteTask(id ,(err,response)=>{
+        if(err){
+            resp.send(err.message);
         }
-        console.log('new task added');
-        next();
-        
+        resp.redirect('/alltask');
 
-    });
-    
-} */
+    })
+}

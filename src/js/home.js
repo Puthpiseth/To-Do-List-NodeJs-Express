@@ -16,6 +16,7 @@ form_entry.addEventListener('submit', (e)=>{
         })
     }
 })
+console.log('hello');
 
 
 
