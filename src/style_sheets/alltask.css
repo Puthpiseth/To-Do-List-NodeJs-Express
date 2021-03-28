@@ -1,13 +1,131 @@
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
   background-color: #f0f0f0;
-  margin: 0;
   font-size: 16px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0468bf), to(#8c4332));
-  background: linear-gradient(#0468bf, #8c4332);
+  background: url("alltask_wallpaper.jpg");
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.settings {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: flex-start;
+          flex-direction: flex-start;
+  top: 0;
+  left: 80%;
+  height: 100vh;
+  width: 20vw;
+  padding: 0;
+}
+
+.menu-preferences {
+  background-color: whitesmoke;
+  margin: 0;
+  height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  padding: 0;
+  -webkit-transform: translateX(20vw);
+          transform: translateX(20vw);
+  overflow: hidden;
+  -webkit-transition: .8s ease-out;
+  transition: .8s ease-out;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0;
+}
+
+.menu-preferences li {
+  text-align: center;
+  margin: 10% 0;
+  min-width: 90%;
+}
+
+.menu-preferences li a {
+  font-size: 1.5rem;
+}
+
+.menu-preferences li:first-child {
+  list-style: url("edit.svg") inside;
+}
+
+.menu-preferences li:nth-child(2) {
+  list-style: url("tasks.svg") inside;
+}
+
+.menu-preferences li:nth-child(3) {
+  list-style: url("delete.svg") inside;
+}
+
+.menu-preferences li:last-child {
+  list-style: url("turn-off.svg") inside;
+}
+
+.menu-burger {
+  position: fixed;
+  top: 5%;
+  left: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 30px;
+  z-index: 10;
+}
+
+.menu-burger > * {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.menu-burger span {
+  width: 100%;
+  height: 5px;
+  background-color: black;
 }
 
 .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 50vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,19 +136,23 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.315);
   padding-bottom: 10%;
 }
 
+.container .task {
+  list-style: none;
+  padding: 0;
+  width: 60%;
+}
+
 .user-entry {
-  width: 45.8vw;
+  width: 50%;
   height: 80%;
-  margin-left: 1%;
+  margin: 1%;
 }
 
 input[type="submit"] {
-  height: 72%;
+  height: 85%;
 }
 
 input[type="checkbox"]:checked + a {
@@ -39,14 +161,18 @@ input[type="checkbox"]:checked + a {
 }
 
 form {
-  min-height: 5vh;
-  width: 50%;
-}
-
-ul {
-  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0;
-  width: 50%;
+  min-height: 5vh;
+  width: 100%;
 }
 
 a {
@@ -61,12 +187,12 @@ a {
 }
 
 svg {
-  stroke: black;
-  fill: rgba(255, 0, 0, 0.753);
   padding: 2%;
+  width: 20px;
+  height: 20px;
 }
 
-li {
+.task li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -75,7 +201,7 @@ li {
           justify-content: space-between;
   background: #faf7f7;
   border: none;
-  padding: 20px 0;
+  padding: 10px 0;
   margin-bottom: 5px;
   -webkit-box-shadow: 0 0 3px black;
           box-shadow: 0 0 3px black;
@@ -85,7 +211,7 @@ li {
   transition: 1s;
 }
 
-li:hover {
+.task li:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   background-color: #b8d6db;
@@ -93,5 +219,25 @@ li:hover {
 
 .visible {
   visibility: visible;
+}
+
+.menu-active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+
+.first-bar {
+  -webkit-transform: rotate(38deg) translate(15px, 20px);
+          transform: rotate(38deg) translate(15px, 20px);
+}
+
+.middle-bar {
+  display: none;
+}
+
+.last-bar {
+  -webkit-transform: rotate(-40deg);
+          transform: rotate(-40deg);
 }
 /*# sourceMappingURL=alltask.css.map */

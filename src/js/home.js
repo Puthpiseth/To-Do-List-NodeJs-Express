@@ -16,7 +16,8 @@ form_entry.addEventListener('submit', (e)=>{
         })
     }
 })
-console.log('hello');
+
+exports.jsTest = warning.textContent;
 
 
 

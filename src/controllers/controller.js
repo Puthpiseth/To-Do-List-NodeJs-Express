@@ -13,7 +13,6 @@ exports.create_table = (request, response)=>{
    
 }
 
-
 exports.addTask = (request, response) =>{
     const id = request.body.tasks;
     model.create_task(id, (error, datas) => {
@@ -25,9 +24,6 @@ exports.addTask = (request, response) =>{
       
 };
 
-
-
-
 exports.afficheTask = (request, response)=> {
     model.affiche((error,taskData)=>{
         if(error){
@@ -36,7 +32,6 @@ exports.afficheTask = (request, response)=> {
         response.render('alltask.ejs',{taskData});
 
     });
-    
 }
 
 exports.delete_selected_task = (request,resp)=>{
@@ -46,6 +41,9 @@ exports.delete_selected_task = (request,resp)=>{
             resp.send(err.message);
         }
         resp.redirect('/alltask');
-
     })
 }
+
+
+
+

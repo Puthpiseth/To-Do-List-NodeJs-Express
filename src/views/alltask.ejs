@@ -12,17 +12,16 @@
     <div class="container">
         <form action="/alltask" method='POST'>
             <input class= "user-entry" type="text" id='entry-table-name' placeholder="Ajouter une tache" name="tasks">
-            <input type="submit" class='submit' value='submit'>
-               
-        </form>    
+            <input type="submit" class='submit' value='ajouter'>
+        </form>  
 
-        <ul>
+        <ul class='task'>
            <% if (taskData){taskData.forEach(el=>{%>
             <li>
                 <input type="checkbox">
                 <a href=<%=`/alltask/description/${el.description}`%>><%= el.description %></a>
                 <a class="delete" href=<%=`/alltask/delete/${el.description}`%>><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	  viewBox="0 0 365.744 365.744" style="enable-background:new 0 0 365.744 365.744; width:20px; height:20px" xml:space="preserve">
+	  viewBox="0 0 365.744 365.744" style="enable-background:new 0 0 365.744 365.744;" fill='rgba(255, 0, 0, 0.753)' xml:space="preserve">
 <g>     
 	<g>
 		<g>
@@ -40,10 +39,24 @@
 
 </svg></a>
             </li><% })}%>
-
-
         </ul>
+    </div>
 
+    <div  class='settings'>
+        <div class="menu-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class= 'menu-preferences'>
+            <li><a href="#" alt=''>Créer une nouvelle table</a></li>
+            <li><a href="#" alt=''>Toutes les tâches crées</a></li>
+            <li><a href="#" alt=''>Supprimer  une table</a></li>
+            <li><a href="/" alt=''>Se déconnecter</a></li>
+            
+            
+        </ul>
     </div>
    
     <script src="/alltask.js"></script>
