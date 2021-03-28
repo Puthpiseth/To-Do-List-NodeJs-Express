@@ -22,6 +22,10 @@ server.get('/',(_,rep)=>{
     rep.render("home.ejs");
 })
 
+server.get('/alltask/description/:id',(req,rep)=>{
+    const {id} = req.params;
+    rep.render('description.ejs',{id})
+})
 ////////////////////////////
 server.get("/alltask",getUrl,  controller.afficheTask);
 /////////////////////////////
